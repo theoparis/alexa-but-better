@@ -1,16 +1,12 @@
 {
-    "port": 8080,
     "commands": {
         "start Google": {
             "say": "ok starting google",
-            "run": "start chrome \"http://google.ca/search?q=pokemon+p0rn\""
+            "open": "http://google.ca/search?q=pokemon+p0rn"
         },
         "enable my Minecraft addiction": {
             "say": "you have a problem",
             "run": "cd C:/Program Files (x86)/Minecraft && MinecraftLauncher.exe"
-        },
-        "open my Pokemon porn": {
-            "run": "cd \"C:/Users/Brent/Downloads/pokemon p0rn\" && start ."
         }
     }
 }
