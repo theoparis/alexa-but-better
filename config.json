@@ -1,12 +1,15 @@
 {
     "commands": {
-        "start Google": {
+        "open Google": {
             "say": "ok starting google",
-            "open": "http://google.ca/search?q=pokemon+p0rn"
+            "open": "http://google.ca/search"
         },
         "enable my Minecraft addiction": {
             "say": "you have a problem",
             "run": "cd C:/Program Files (x86)/Minecraft && MinecraftLauncher.exe"
+        },
+        "hi": {
+            "broadcast": "Hello"
         }
     }
 }

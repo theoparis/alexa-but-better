@@ -14,23 +14,25 @@ io.on('connection', (socket) => {
 	console.log('a user connected')
 	socket.on('said', (transcript) => {
         console.log(transcript)
-		processCommand(transcript)
+		processCommand(socket, transcript)
 	})
 })
 
-const processCommand = (transcript) => {
+const processCommand = (socket, transcript) => {
 	const commands = require('./config.json').commands
 	if (commands[transcript]) {
 		// TODO: use object.keys + contains
 		const cmd = commands[transcript]
 		if (cmd.say && cmd.say != '') {
-			say.speak(cmd.say)
+			socket.emit('speak', cmd.say)
+        }
+        
+        if (cmd.broadcast && cmd.broadcast != '') {
+			io.sockets.emit('speak', cmd.broadcast)
 		}
 
 		if (cmd.open && cmd.open != '') {
-			open(cmd.open, {
-				wait: true,
-			}).then(cp => {}).catch(console.error)
+			socket.emit('open', cmd.open)
 		}
 	}
 }
